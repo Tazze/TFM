@@ -1,0 +1,32 @@
+% Chapter Template
+
+\chapter{Introduction} % Main chapter title
+
+\label{Chapter1} % Change X to a consecutive number; for referencing this chapter elsewhere, use \ref{ChapterX}
+
+Technical limitations are as common to technology as technology itself, what was a vast amount of storage a decade ago is little more than what one would expect from a basic cloud storage plan today, that being the case one often comes face to face with yesterday's limitations, chief among them processing power and storage.
+
+\hfill
+
+In an era in which the most common removable storage medium had no more than 1.44 Megabytes of space and the average processor had its performance measured in Megahertz and whether or not it had a math co-processor, image use was accompanied by lossy compression, like in the case of JPEG (\cite{JPEG}) files, to save the most amount of space, and cheap downsampling methods that wouldn't overburden the CPU.
+
+\hfill
+
+Nowadays storing images in PNG (\cite{PNG}) format with its lossless compression and downsizing using methods such as Lanczos resampling (\cite{wiki:Lanczos}) to prevent aliasing is a reasonable proposition, but the previous methods of saving space and cycles are still present, and there's no way of knowing whether an illustration created by a digital artist today with a high definition display will end up being dwarfed by screens 10 years into the future.
+
+\hfill
+
+If one wanted to print an illustration onto a T-shirt, or a poster, or use it as a wallpaper on a 4K display, such file would need to have a very high resolution and no compression artifacts or noise to look good, however such files can often only be sourced from the artist, if they even exist; recreating the work in a way that achieves the required quality would require a substantial amount of time and effort by someone with the skill set to do so, while it would be expensive for someone who lacks it to commission someone for it, furthermore the result might still be unsatisfactory, with the recreated image having a slightly different aesthetic feel to it.
+
+\section{Waifu2x}
+
+Waifu2x (\cite{waifu2x}) is a web based application that performs upscaling and denoising of anime style images and photos, however, it uses different models for different levels of noise, relying on the user to select the correct denoising level, and it only allows upscaling up to 2 times the original image size.
+
+\hfill
+
+While there is a Caffe port of waifu2x (\cite{waifu2x-caffe}) that supports upscaling beyond 2 times and has an auto-denoising feature, it is not explained how the software determines the best denoising level for a particular image, this port runs on the user's computer and is able to take advantage of any CUDA enabled graphics cards present, making it well suited for batch processing images since the original web application has no such feature and requires a captcha to be resolved for every processed image.
+
+\section{Goals}
+
+The goals of this project are simple, to create a model that is able of upscaling and denoising an image (digital art) without any prior knowledge of level or type of noise (if any) present on the input image/s with results on par or superior to those of the best available alternative (Waifu2x).
+

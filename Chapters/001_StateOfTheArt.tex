@@ -1,0 +1,42 @@
+\chapter{State of the art} % Main chapter title
+
+\label{Chapter2}
+
+\section{Super-Resolution}
+
+Initial works in the world of Super-Resolution relied primarily on Dictionary based approaches, with low resolution and high resolution dictionaries in which a high resolution image is obtained by matching the low resolution representation to items in the LR dictionary and translating those similarities using the HR dictionary to the final HR image.
+
+\hfill 
+
+Dictionary based methods have undergone a great deal of transformation, with a wide array of improvements designed to improve the dictionary learning process (\cite{BPJDL}), or the LR to HR mapping in terms of speed and memory with approaches like Anchor Neighborhood Regression (\cite{ANR}), with its subsequent improvements(\cite{APlus}, \cite{IA}, \cite{PSyCo}), Sparse Coding (\cite{SC}, \cite{CSCN}) and Super-Resolution Forests (\cite{NBSRF}, \cite{RFL}).
+
+\hfill
+
+Along with all the methods reliant on external information came the ones reliant in information intrinsic to the images being processed (\cite{SelfEx}) and more hybrid approaches with external pre-training and internal fine tuning (\cite{DJSR}.
+
+\hfill
+
+However, present works rely on less engineered solutions with maps of LR and HR dictionaries and instead have networks learn the mapping functions directly in a non-linear way, the specifics still vary depending on which mapping function has to be learned, the primary example of this new avenue of research is SRCNN (\cite{SRCNN}), which has been the subject of some improvements (\cite{ESPCN}, \cite{FSRCNN}).
+
+\hfill
+
+As models were made deeper in order to learn more complex mappings, skip connections like the ones displayed in ResNet (\cite{ResNet}) were added to avoid exploding/vanishing gradients (\cite{DRRN}, \cite{VDSR}, \cite{SRGAN}, \cite{EDSR}), recursive architectures have also been successfully implemented, among other things as a way to mitigate overfitting (\cite{DRCN}), which have then been improved upon (\cite{DRRN}) 
+
+\hfill
+
+Additionally, new models have been using Generative Adversarial Networks as a way of guiding networks towards producing results belonging to the natural image manifold, avoiding results that are good number-wise (as in having a low Mean Squared Error, or high PSNR and SSIM), but look "soft" and artificial to humans. (\cite{SRGAN}, \cite{SFT-GAN}, \cite{CinCGAN}).
+
+\subsection{Denoising}
+
+Modern denoising methods often double as SISR models, such as TNRD (\cite{TNRD}) and RED30 (\cite{RED30}), and despite its age, BM3D (\cite{BM3D}) is still relevant and being revisited, either to propose an alternative (\cite{MLP-BM3D}), or a modern adaptation (\cite{BM3D-Net}). 
+
+\section{Deep Learning libraries}
+
+There are a variety of Open Source machine learning libraries for Python with CUDA support:
+
+\begin{itemize}
+    \item \textbf{TensorFlow}: Developed by the Google Brain Team, TensorFlow is a very popular library, especially when used as a backend with Keras, it is in fact taught in this Master's Deep Learning course. (\cite{tensorflow})
+    \item \textbf{PyTorch}: Based on Torch and merged with Caffe2, it is developed by Facebook's AI research group. (\cite{pytorch})
+    \item \textbf{Theano}: While no longer in development and a relatively minor player, the fact that it was developed by the Montreal Institute for Learning Algorithms might attract those who might be displeased with the corporate ties of other libraries. (\cite{theano})
+    \item \textbf{Microsoft Cognitive Toolkit}: Microsoft's CNTK library has both a Python API and a C\# API, which makes it much easier to integrate with Universal Windows Platform, Windows Forms and ASP.NET applications. (\cite{cntk})
+\end{itemize}

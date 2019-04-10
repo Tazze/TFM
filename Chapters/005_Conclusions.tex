@@ -1,0 +1,9 @@
+\chapter{Conclusion} % Main chapter title
+
+\label{Chapter6}
+
+My model achieves performance comparable to the best waifu2x model match for a given noise level for JPEG tasks, while dominating in gaussian denoising, I suspect the reason why it doesn't consistently outperform it in JPEG denoising (apart from the average score) is that the patch size is overly small (32 x 32), I used the L2 metric as a "safe" option since I was adding new functionality to the network apart from just uscaling, despite L1 having empirically better results (\cite{EDSR}) and the lack of Batch Normalization layers, which are proven to degrade performance slightly (\cite{DnCNN}), however the fact that my model performs substantially better when the picture has a lot of fine detail \ref{Cyberpunk_fig} suggest that there might actually be an overfitting issue, after all EDSR is a highly complex model, and artwork is generally not as complex as photographs.
+
+\section{Future work}
+
+I have found a small handful of images with compression artifacts that differ from JPEG compression, I will try to find the optimizer that generated those artifacts and include it in the training data, as well as other downsampling methods to fix aliasing or other issues that might occur on low resolution images.
